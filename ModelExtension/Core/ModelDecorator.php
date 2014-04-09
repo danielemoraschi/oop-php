@@ -6,7 +6,7 @@ namespace Core;
  * Plug-ins for additional functionality in your Models.
  *
  * Note: ModelDecorator are not actually Decorators in the GoF Design Patterns 
- * sense of the word.  A better name for this class would be DataExtension.
+ * sense of the word. A better name for this class would be ModelExtension.
  * 
  * @package core
  * @author dmoraschi
