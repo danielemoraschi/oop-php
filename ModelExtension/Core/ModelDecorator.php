@@ -11,18 +11,19 @@ namespace Core;
  * @package core
  * @author dmoraschi
  */
-abstract class ModelDecorator extends Extension 
-{    
+abstract class ModelDecorator extends Extension
+{
+
     /**
-	 * Statics on a {@link \Core\Object} subclass which can be decorated onto. 
+     * Statics on a {@link \Core\Object} subclass which can be decorated onto. 
      * This list is limited for security and performance reasons.
-	 *
-	 * @var array
-	 */
-	private static $decoratableStatics = array(
-		'dbFields' => true,
-	);
-    
+     *
+     * @var array
+     */
+    private static $decoratableStatics = array(
+        'dbFields' => true,
+    );
+
     /**
      * The name of the method in the extension used to return
      * the extended statics variables.
@@ -30,7 +31,7 @@ abstract class ModelDecorator extends Extension
      * @var string 
      */
     protected static $extraStaticsMethod = 'extraStatics';
-    
+
     /**
      * Define extra static parameters.
      */
@@ -44,35 +45,35 @@ abstract class ModelDecorator extends Extension
      * @param mixed $fields
      */
     public function updateCrudForm(array &$fields) {}
-    
+
     /**
-	 * Load the extra static definitions for the given extension
-	 * class name, called by {@link \Core\Object::addExtension()}
-	 * 
-	 * @param string $class Class name of the owner class (or owner base class)
-	 * @param string $extension Class name of the extension class
-	 */
-	public static function loadExtraStatics($class, $extension) 
-    {		
-		if (preg_match('/^([^(]*)/', $extension, $matches)) {
-			$extensionClass = $matches[1];
-		} else {
-			user_error("Bad extenion '$extension' - "
+     * Load the extra static definitions for the given extension
+     * class name, called by {@link \Core\Object::addExtension()}
+     * 
+     * @param string $class Class name of the owner class (or owner base class)
+     * @param string $extension Class name of the extension class
+     */
+    public static function loadExtraStatics($class, $extension)
+    {
+        if (preg_match('/^([^(]*)/', $extension, $matches)) {
+            $extensionClass = $matches[1];
+        } else {
+            user_error("Bad extenion '$extension' - "
                     . "can't find classname", E_USER_WARNING);
-			return;
-		}
-				
-		$statics = call_user_func(
-            array($extensionClass, self::$extraStaticsMethod), 
-            $class, $extension
+            return;
+        }
+
+        $statics = call_user_func(
+                array($extensionClass, self::$extraStaticsMethod), 
+                $class, $extension
         );
 
         if (!$statics) {
             return;
         }
-        
+
         $classRef = new \ReflectionClass($class);
-        
+
         foreach ($statics as $name => $newValue) {
             $values = $classRef->getStaticPropertyValue($name, array());
             // array to be merged
@@ -80,5 +81,6 @@ abstract class ModelDecorator extends Extension
                 $classRef->setStaticPropertyValue($name, array_merge($values, $newValue));
             }
         }
-	}
+    }
+
 }

@@ -8,7 +8,8 @@ namespace Core;
  * @package core
  * @author dmoraschi
  */
-interface ModelInterface 
+interface ModelInterface
 {
+
     public function getCrudForm();
 }

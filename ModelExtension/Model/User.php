@@ -10,18 +10,20 @@ namespace Model;
  */
 class User extends \Core\Model
 {
+
     public static $extensions = array(
-        //'\Module\User\UserExtended',
+            //'\Module\User\UserExtended',
     );
     
     public static $dbFields = array(
         'FirstName' => 'TextField',
         'LastName' => 'TextField'
     );
-    
+
     public function getCrudForm()
     {
         $fields = parent::getCrudForm();
         return $fields;
     }
+
 }

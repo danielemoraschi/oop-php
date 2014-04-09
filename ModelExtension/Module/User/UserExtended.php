@@ -10,24 +10,27 @@ namespace Module\User;
  */
 class UserExtended extends \Core\ModelDecorator
 {
+
     /**
      * @return array
      */
-    public function extraStatics() {
+    public function extraStatics()
+    {
         return array(
             'dbFields' => array(
                 'email' => 'EmailField',
             ),
         );
     }
-    
+
     /**
      * @param array $fields
      */
-    public function updateCrudForm(array &$fields) {
+    public function updateCrudForm(array &$fields)
+    {
         return $fields['email_confirm'] = 'EmailField';
     }
-    
+
     /**
      * @return boolean
      */
@@ -35,4 +38,5 @@ class UserExtended extends \Core\ModelDecorator
     {
         return true;
     }
+
 }
