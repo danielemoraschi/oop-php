@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace ModelExtenion\Core;
 
 /**
  * A single database record.

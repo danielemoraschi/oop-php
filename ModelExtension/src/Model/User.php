@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace ModelExtenion\Model;
 
 /**
  * The base User model
@@ -8,7 +8,7 @@ namespace Model;
  * @package testcase
  * @author dmoraschi
  */
-class User extends \Core\Model
+class User extends \ModelExtenion\Core\Model
 {
 
     public static $extensions = array(

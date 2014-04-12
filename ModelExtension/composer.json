@@ -1,0 +1,17 @@
+{
+    "name": "danielemoraschi/oop-php",
+    "license": "MIT",
+    "authors": [{
+            "name": "Daniele Moraschi",
+            "email": "daniele.moraschi@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "ModelExtenion\\": "src/",
+            "ModelExtenion\\Test\\": "tests"
+        }
+    }
+}

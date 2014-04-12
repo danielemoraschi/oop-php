@@ -1,5 +1,7 @@
 <?php
 
+namespace ModelExtenion\Test;
+
 /**
  * @backupStaticAttributes enabled
  */
@@ -11,14 +13,14 @@ class UserTest extends PHPUnit_Framework_TestCase
      */
     public function testNewMethodNotExtended()
     {
-        $user = new Model\User;
+        $user = new ModelExtenion\Model\User;
         $user->newMethod();
     }
 
     public function testNewMethodExtended()
     {
-        Model\User::addExtension('\Module\User\UserExtended');
-        $user = new Model\User;
+        ModelExtenion\Model\User::addExtension('\Module\User\UserExtended');
+        $user = new ModelExtenion\Model\User;
 
         $this->assertTrue($user->newMethod());
     }
@@ -26,17 +28,17 @@ class UserTest extends PHPUnit_Framework_TestCase
     public function testDbFieldsNotExtended()
     {
         $this->assertEquals(
-                Model\User::$dbFields, 
+                ModelExtenion\Model\User::$dbFields, 
                 array('FirstName' => 'TextField', 'LastName' => 'TextField')
         );
     }
 
     public function testDbFieldsExtended()
     {
-        Model\User::addExtension('\Module\User\UserExtended');
+        ModelExtenion\Model\User::addExtension('\Module\User\UserExtended');
 
         $this->assertEquals(
-                Model\User::$dbFields, 
+                ModelExtenion\Model\User::$dbFields, 
                 array('FirstName' => 'TextField', 'LastName' => 'TextField',
                     'email' => 'EmailField')
         );
@@ -44,7 +46,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 
     public function testCrudFormNotExtended()
     {
-        $user = new Model\User;
+        $user = new ModelExtenion\Model\User;
 
         $this->assertEquals(
                 $user->getCrudForm(), 
@@ -55,8 +57,8 @@ class UserTest extends PHPUnit_Framework_TestCase
 
     public function testCrudFormExtended()
     {
-        Model\User::addExtension('\Module\User\UserExtended');
-        $user = new Model\User;
+        ModelExtenion\Model\User::addExtension('\Module\User\UserExtended');
+        $user = new ModelExtenion\Model\User;
 
         $this->assertEquals(
                 $user->getCrudForm(), 

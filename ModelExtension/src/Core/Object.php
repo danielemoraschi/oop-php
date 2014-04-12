@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace ModelExtenion\Core;
 
 /**
  * A base class for all objects to inherit from.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Module\User;
+namespace ModelExtenion\Module\User;
 
 /**
  * The UserExtended extension for the User model.
@@ -8,7 +8,7 @@ namespace Module\User;
  * @package testcase
  * @author dmoraschi
  */
-class UserExtended extends \Core\ModelDecorator
+class UserExtended extends \ModelExtenion\Core\ModelDecorator
 {
 
     /**
