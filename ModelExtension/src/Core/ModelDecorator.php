@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelExtenion\Core;
+namespace ModelExtension\Core;
 
 /**
  * Plug-ins for additional functionality in your Models.

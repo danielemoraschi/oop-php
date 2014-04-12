@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelExtenion\Core;
+namespace ModelExtension\Core;
 
 /**
  * A base class for all objects to inherit from.
@@ -36,6 +36,11 @@ abstract class Object
      * @var array all current extension instances.
      */
     protected $extensionInstances = array();
+    
+    /**
+     * @var string 
+     */
+    private static $coreExtensionClass = '\ModelExtension\Core\Extension';
 
     /**
      * 
@@ -130,16 +135,16 @@ abstract class Object
         $extensionClass = $matches[1];
         if (!class_exists($extensionClass)) {
             user_error(sprintf(
-                            'Object::addExtension() - '
-                            . 'Can\'t find extension class for "%s"', 
+                        'Object::addExtension() - '
+                        . 'Can\'t find extension class for "%s"', 
                     $extensionClass), E_USER_ERROR);
             return false;
         }
 
-        if (!is_subclass_of($extensionClass, '\Core\Extension')) {
+        if (!is_subclass_of($extensionClass, self::$coreExtensionClass)) {
             user_error(sprintf(
-                            'Object::addExtension() - '
-                            . 'Extension "%s" is not a subclass of Extension', 
+                        'Object::addExtension() - '
+                        . 'Extension "%s" is not a subclass of Extension', 
                     $extensionClass), E_USER_ERROR);
             return false;
         }

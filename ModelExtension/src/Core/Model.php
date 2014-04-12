@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelExtenion\Core;
+namespace ModelExtension\Core;
 
 /**
  * A single database record.
@@ -49,7 +49,7 @@ abstract class Model extends Object implements ModelInterface
         $extended = parent::addExtension($class, $extension);
         if ($extended) {
             // load statics for Model classes
-            \Core\ModelDecorator::loadExtraStatics($class, $extension);
+            ModelDecorator::loadExtraStatics($class, $extension);
         }
     }
 

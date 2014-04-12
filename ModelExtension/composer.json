@@ -10,8 +10,8 @@
     },
     "autoload": {
         "psr-4": {
-            "ModelExtenion\\": "src/",
-            "ModelExtenion\\Test\\": "tests"
+            "ModelExtension\\": "src/",
+            "ModelExtension\\Test\\": "tests"
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelExtenion\Core;
+namespace ModelExtension\Core;
 
 /**
  * A Model Interface

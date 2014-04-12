@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelExtenion\Core;
+namespace ModelExtension\Core;
 
 /**
  * Add extension that can be added to an object

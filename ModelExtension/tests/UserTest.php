@@ -1,11 +1,11 @@
 <?php
 
-namespace ModelExtenion\Test;
+namespace ModelExtension\Test;
 
 /**
  * @backupStaticAttributes enabled
  */
-class UserTest extends PHPUnit_Framework_TestCase
+class UserTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -13,32 +13,32 @@ class UserTest extends PHPUnit_Framework_TestCase
      */
     public function testNewMethodNotExtended()
     {
-        $user = new ModelExtenion\Model\User;
+        $user = new \ModelExtension\Model\User;
         $user->newMethod();
     }
 
     public function testNewMethodExtended()
     {
-        ModelExtenion\Model\User::addExtension('\Module\User\UserExtended');
-        $user = new ModelExtenion\Model\User;
+        \ModelExtension\Model\User::addExtension(
+                '\ModelExtension\Module\User\UserExtended');
+        $user = new \ModelExtension\Model\User;
 
         $this->assertTrue($user->newMethod());
     }
 
     public function testDbFieldsNotExtended()
     {
-        $this->assertEquals(
-                ModelExtenion\Model\User::$dbFields, 
+        $this->assertEquals(\ModelExtension\Model\User::$dbFields, 
                 array('FirstName' => 'TextField', 'LastName' => 'TextField')
         );
     }
 
     public function testDbFieldsExtended()
     {
-        ModelExtenion\Model\User::addExtension('\Module\User\UserExtended');
+        \ModelExtension\Model\User::addExtension(
+                '\ModelExtension\Module\User\UserExtended');
 
-        $this->assertEquals(
-                ModelExtenion\Model\User::$dbFields, 
+        $this->assertEquals(\ModelExtension\Model\User::$dbFields, 
                 array('FirstName' => 'TextField', 'LastName' => 'TextField',
                     'email' => 'EmailField')
         );
@@ -46,10 +46,9 @@ class UserTest extends PHPUnit_Framework_TestCase
 
     public function testCrudFormNotExtended()
     {
-        $user = new ModelExtenion\Model\User;
+        $user = new \ModelExtension\Model\User;
 
-        $this->assertEquals(
-                $user->getCrudForm(), 
+        $this->assertEquals($user->getCrudForm(), 
                 array('id' => 'IntField', 'FirstName' => 'TextField',
                     'LastName' => 'TextField')
         );
@@ -57,11 +56,11 @@ class UserTest extends PHPUnit_Framework_TestCase
 
     public function testCrudFormExtended()
     {
-        ModelExtenion\Model\User::addExtension('\Module\User\UserExtended');
-        $user = new ModelExtenion\Model\User;
+        \ModelExtension\Model\User::addExtension(
+                '\ModelExtension\Module\User\UserExtended');
+        $user = new \ModelExtension\Model\User;
 
-        $this->assertEquals(
-                $user->getCrudForm(), 
+        $this->assertEquals($user->getCrudForm(), 
                 array('id' => 'IntField', 'FirstName' => 'TextField',
                     'LastName' => 'TextField', 'email' => 'EmailField',
                     'email_confirm' => 'EmailField')
