@@ -10,8 +10,9 @@
     },
     "autoload": {
         "psr-4": {
-            "ModelExtension\\": "src/",
-            "ModelExtension\\Test\\": "tests"
+            "ModelExtension\\": "src/ModelExtension/",
+            "App\\": "app/",
+            "App\\Test\\": "tests"
         }
     }
 }

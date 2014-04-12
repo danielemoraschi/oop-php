@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelExtension\Model;
+namespace App\Model;
 
 /**
  * The base User model

@@ -1,6 +1,6 @@
 <?php
 
-namespace ModelExtension\Module\User;
+namespace App\Module\User;
 
 /**
  * The UserExtended extension for the User model.
