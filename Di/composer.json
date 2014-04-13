@@ -1,0 +1,18 @@
+{
+    "name": "danielemoraschi/oop-php/Di",
+    "license": "MIT",
+    "authors": [{
+            "name": "Daniele Moraschi",
+            "email": "daniele.moraschi@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Di\\": "src/Di/",
+            "App\\": "app/",
+            "App\\Test\\": "tests"
+        }
+    }
+}
